@@ -8,13 +8,13 @@ const Navbar = (props) => {
   let setIsLoggedIn = props.setIsLoggedIn;
 
   return (
-    <div className='flex justify-evenly '>
+    <div className='flex justify-evenly item-center w-11/12 max-w-[1160px] py-4 mx-auto '>
       <Link to="/" > 
         <img src={logo} alt="Logo" width={160} height={32} loading='lazy'></img>
       </Link>
 
-      <nav>
-        <ul className='flex gap-4'>
+      <nav className=''>
+        <ul className=' text-richblack-100 flex gap-x-6'>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -28,10 +28,11 @@ const Navbar = (props) => {
       </nav>
 
       {/* login signup log-out dashboard */}
-      <div className='flex ml-6 mr-4 gap-3'>
+      <div className='flex item-center gap-x-4'>
         { !isLoggedIn &&
           <Link to="/login" > 
-            <button>
+            <button className='bg-richblack-800  text-richblack-100 py-[8px]
+            px-[12px] rounded-[8px] border border-richblack-700'>
               Login
             </button>
           </Link>
@@ -39,8 +40,9 @@ const Navbar = (props) => {
 
         { !isLoggedIn &&
           <Link to="/signup" > 
-            <button >
-              Sign Up
+            <button className='bg-richblack-800 text-richblack-100 py-[8px]
+            px-[12px] rounded-[8px] border border-richblack-700' >
+              Sign up
             </button>
          </Link>
         }
@@ -50,7 +52,9 @@ const Navbar = (props) => {
             <button onClick={()=>{
               setIsLoggedIn(false);
               toast.success("Logged Out");
-            }}>
+            }} 
+            className='bg-richblack-800 text-richblack-100 py-[8px]
+            px-[12px] rounded-[8px] border border-richblack-700'>
               Log Out
             </button>
         </Link>
@@ -58,7 +62,8 @@ const Navbar = (props) => {
 
         { isLoggedIn &&
           <Link to="/dashboard" > 
-            <button>
+            <button className='bg-richblack-800 text-richblack-100 py-[8px]
+            px-[12px] rounded-[8px] border border-richblack-700'>
               Dashboard
             </button>
           </Link>
